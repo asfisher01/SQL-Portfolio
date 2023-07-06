@@ -1,0 +1,35 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, aisle INTEGER);
+
+INSERT INTO store VALUES (1, "Roses", 5, 20, 1);
+INSERT INTO store VALUES (2, "Bread", 10, 3, 1);
+INSERT INTO store VALUES (3, "Cheese", 10, 5, 1);
+INSERT INTO store VALUES (4, "Peanut Butter", 15, 5, 2);
+INSERT INTO store VALUES (5, "Jelly", 3, 3, 2);
+INSERT INTO store VALUES (6, "Bagels", 4, 4, 2);
+INSERT INTO store VALUES (7, "Shampoo", 5, 5, 3);
+INSERT INTO store VALUES (8, "Cond", 5, 5, 3);
+INSERT INTO store VALUES (9, "Soap", 5, 5, 3);
+INSERT INTO store VALUES (10, "Crackers", 6, 2, 4);
+INSERT INTO store VALUES (11, "Cereal", 20, 3, 4);
+INSERT INTO store VALUES (12, "Cards", 4, 1, 4);
+INSERT INTO store VALUES (13, "Drinks", 25, 1, 5);
+INSERT INTO store VALUES (14, "Water", 20, 2, 5);
+INSERT INTO store VALUES (15, "Candy", 30, 2, 5);
+
+-Order all items by the most expensive items.
+SELECT * FROM store 
+ORDER BY price DESC;
+
+-Which items are in aisles 3 and up?
+SELECT * FROM store WHERE aisle >3 
+
+-What is the total amount of items per aisle?
+SELECT sum(quantity) 
+FROM store 
+GROUP BY aisle
+
+-Which items costs less than $5 and are in aisle 2?
+SELECT name, price
+FROM store
+WHERE price < 5 
+AND aisle = '2'
