@@ -1,0 +1,31 @@
+CREATE TABLE famous 
+(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, best_song TEXT);
+
+INSERT INTO famous (first_name, last_name, best_song)
+VALUES ("Morgan", "Wallen", "Chasin You");
+INSERT INTO famous (first_name, last_name, best_song)
+VALUES ("Luke", "Combs", "Fast Car");
+INSERT INTO famous (first_name, last_name, best_song)
+VALUES ("Luke", "Bryan", "Kiss Tomorrow Goodbye");
+INSERT INTO famous (first_name, last_name, best_song)
+VALUES ("Jason", "Aldean", "You Make It Easy");
+INSERT INTO famous (first_name, last_name, best_song)
+VALUES ("Thomas", "Rhett","Get Me Some of That");
+
+CREATE table info (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    age INTEGER,
+    hometown TEXT,
+    homestate TEXT);
+    
+INSERT INTO info (age, hometown, homestate) VALUES ("30", "Sneedville", "Tennessee");
+INSERT INTO info (age, hometown, homestate) VALUES ("33", "Charlotte", "North Carolina");
+INSERT INTO info (age, hometown, homestate) VALUES ("46", "Leesburg", "Georgia");
+INSERT INTO info (age, hometown, homestate) VALUES ("46", "Macon", "Georgia");
+INSERT INTO info (age, hometown, homestate) VALUES ("33", "Valdosta", "Georgia");
+
+-Combine first name, last name, and age
+SELECT famous.first_name, famous.last_name, info.age
+FROM famous
+JOIN info
+ON famous.id = info.id;
